@@ -1,0 +1,52 @@
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="loginForm"  novalidate >
+          <div class="">
+            <p class="lead fw-normal mb-0 me-3 text-center"><b>Quản lí nhân viên  </b></p>
+          </div>
+          <div class="divider d-flex align-items-center my-4">
+          </div>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <mat-form-field>
+              <input matInput  placeholder="Tên đăng nhập" formControlName="email" [(ngModel)]="employeeLogin.phonenumber" class="form-control px-mg">
+              <mat-error *ngIf="loginForm.get('email')?.errors?.required">
+                Không để trống !
+              </mat-error>
+            </mat-form-field>
+            <div *ngIf="checkUser == true" style="color: red;font-size: 11px;">
+              Tài khoản không tồn tại !
+            </div>
+          </div>
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <mat-form-field >
+              <input (keydown.enter)="onKeydown($event)" matInput type="password" placeholder="Mật khẩu" formControlName="password" [(ngModel)]="employeeLogin.password" class="form-control px-mg">    
+              <mat-error *ngIf="!loginForm.get('password')?.errors?.required">
+                Độ dài mật khẩu phải lớn hơn hoặc bằng 8 và mật khẩu phải chứa một hoặc nhiều ký tự viết hoa, viết thường, số và ký tự đặc biệt</mat-error>
+              <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+                Không để trống !
+              </mat-error>
+              <mat-error *ngIf="checkPass">
+                Mật khẩu sai
+              </mat-error>
+            </mat-form-field>
+            <div *ngIf="checkPass == true" style="color: red;font-size: 11px;">
+              Mật khẩu sai
+            </div>
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="button" class="btn btn-primary btn-lg"(click)="login()" [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

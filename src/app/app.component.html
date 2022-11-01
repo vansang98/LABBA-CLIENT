@@ -1,0 +1,29 @@
+<div *ngIf="viewCheck == true">
+  <nav class="navbar navbar-expand navbar-dark" style="background-color:#3399CC">
+    <a href="#" class="navbar-brand">Quản trị nhân viên</a>
+    <div class="navbar-nav mr-auto">
+      <!--<li class="nav-item">
+        <a [routerLink]="['/listEmployee']"  class="nav-link">Danh sách</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/addEmployee']" class="nav-link">Thêm mới</a>
+      </li>-->
+    </div>
+    <div class="navbar-nav me-auto mb-lg-0">
+      <li class="nav-item avbar-toggler-right">
+        <a routerLink="add" (click)="logout()" class="nav-link">Đăng xuất</a>
+      </li>
+    </div>
+  </nav>
+  <div class="mt-3" style="font-size:14px;">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div *ngIf="viewCheck == false">
+  <div class="container" style="font-size:14px;margin-top:100px;">
+    <div class="col">
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>

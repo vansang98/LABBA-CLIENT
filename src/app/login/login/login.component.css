@@ -1,0 +1,26 @@
+.text-center{
+    text-align: center;
+}
+.example-container{
+    height: 100%;
+    width: 20%;
+    text-align: left;
+}
+.d-flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mat-form-field{
+    width: 100%;
+}
+.mt-top{
+    margin-top: 10px;
+}
+.mt-top-2{
+    margin-top: 50px;
+}
+.pl-1, .px-mg {
+    padding-right:0.25rem!important;
+    padding-left: 0.25rem!important;
+}
